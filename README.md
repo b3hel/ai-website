@@ -10,43 +10,43 @@ The application allows users to send messages and receive AI-generated responses
 
 
 
-\## 🚀 Features
+## 🚀 Features
 
-\- AI chat using a local model (Ollama)
+- AI chat using a local model (Ollama)
 
-\- Real-time communication
+- Real-time communication
 
-\- Conversation history
+- Conversation history
 
-\- Simple and clean UI
-
-
-
-\## 🛠️ Technologies
-
-\- Python
-
-\- Flask
-
-\- Ollama
-
-\- HTML / CSS
+- Simple and clean UI
 
 
 
-\## 🧠 What I Learned
+## 🛠️ Technologies
 
-\- Building a web application with Flask
+- Python
 
-\- Connecting frontend and backend
+- Flask
 
-\- Working with APIs and AI models
+- Ollama
 
-\- Handling user input and responses
+- HTML / CSS
 
 
 
-\## 🧪 Development
+## 🧠 What I Learned
+
+- Building a web application with Flask
+
+- Connecting frontend and backend
+
+- Working with APIs and AI models
+
+- Handling user input and responses
+
+
+
+## 🧪 Development
 
 This project was created as a learning project.
 
@@ -56,27 +56,22 @@ I used \*\*vibe coding (with ChatGPT assistance)\*\*, but I made sure to underst
 
 
 
-\## ⚠️ Notes
+## ⚠️ Notes
 
-\- The app works locally (localhost)
+- The app works locally (localhost)
 
-\- Requires Ollama installed
+- Requires Ollama installed
 
-\- `.env` is not included for security reasons
-
-
-
-\## 🚀 Future Improvements
-
-\- Better UI (like ChatGPT)
-
-\- User authentication
-
-\- Online deployment
+- `.env` is not included for security reasons
 
 
 
-\## 📌 Author
+## 🚀 Future Improvements
 
+- Better UI (like ChatGPT)
+
+- User authentication
+
+- Online deployment
 Created as part of learning Python and AI development.
 
