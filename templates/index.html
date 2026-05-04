@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Chat</title>
+
+    <style>
+        body {
+            background: #0f0f0f;
+            color: white;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        #login {
+            margin-top: 100px;
+        }
+
+        #chat-container {
+            display: none;
+            width: 400px;
+            margin: auto;
+        }
+
+        #chat {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #1a1a1a;
+            text-align: left;
+        }
+
+        .user {
+            color: #4fc3f7;
+        }
+
+        .bot {
+            color: #81c784;
+        }
+
+        input {
+            padding: 10px;
+            width: 70%;
+            margin: 5px;
+            background: #222;
+            color: white;
+            border: none;
+        }
+
+        button {
+            padding: 10px;
+            background: #4fc3f7;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div id="login">
+    <h2>Enter your name</h2>
+    <input id="username" placeholder="Your name">
+    <br>
+    <button onclick="login()">Start Chat</button>
+</div>
+
+
+<div id="chat-container">
+    <h2>AI Chat 🤖</h2>
+
+    <div id="chat"></div>
+
+    <input id="input" placeholder="Type..." 
+    onkeydown="if(event.key==='Enter') send()">
+
+    <button onclick="send()">Send</button>
+</div>
+
+<script>
+let user = ""
+
+function login() {
+    user = document.getElementById("username").value
+
+    if (user.trim() === "") return
+
+    document.getElementById("login").style.display = "none"
+    document.getElementById("chat-container").style.display = "block"
+}
+
+async function send() {
+    let text = document.getElementById("input").value
+    if (text.trim() === "") return
+
+    let chat = document.getElementById("chat")
+
+    chat.innerHTML += `<p class="user"><b>${user}:</b> ${text}</p>`
+
+    let res = await fetch("/chat", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            user: user,
+            message: text
+        })
+    })
+
+    let data = await res.json()
+
+    chat.innerHTML += `<p class="bot"><b>Bot:</b> ${data.reply}</p>`
+
+    chat.scrollTop = chat.scrollHeight
+    document.getElementById("input").value = ""
+}
+</script>
+
+</body>
+</html>
